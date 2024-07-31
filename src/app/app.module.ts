@@ -7,6 +7,9 @@ import { HomeComponent } from './features/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieDetailComponent } from './features/movie-detail/movie-detail.component';
 import { RegisterComponent } from './features/register/register.component';
+import { MovieComponent } from './features/movie/movie.component';
+import { StartComponent } from './features/start/start.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +18,15 @@ import { RegisterComponent } from './features/register/register.component';
     LoginComponent,
     HomeComponent,
     MovieDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieComponent,
+    StartComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

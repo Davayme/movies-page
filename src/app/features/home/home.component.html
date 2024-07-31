@@ -1,1 +1,74 @@
-<h1>HOMEEEEEEEEEEEEEE</h1>
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="text-white text-2xl font-bold">
+        <a routerLink="/">MovieApp</a>
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a routerLink="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+        <div class="relative">
+          <button class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="moviesMenuButton">
+            Películas
+          </button>
+          <div class="absolute mt-2 hidden bg-white shadow-lg rounded-md" id="moviesMenu">
+            <a routerLink="/movies/popular" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Populares</a>
+            <a routerLink="/movies/now_playing" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">En Cartelera</a>
+            <a routerLink="/movies/upcoming" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Próximamente</a>
+            <a routerLink="/movies/top_rated" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mejor Valoradas</a>
+          </div>
+        </div>
+        <div class="relative">
+          <button class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="tvShowsMenuButton">
+            Series de TV
+          </button>
+          <div class="absolute mt-2 hidden bg-white shadow-lg rounded-md" id="tvShowsMenu">
+            <a routerLink="/tv/popular" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Populares</a>
+            <a routerLink="/tv/airing_today" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Al Aire</a>
+            <a routerLink="/tv/upcoming" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Próximamente</a>
+            <a routerLink="/tv/top_rated" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mejor Valoradas</a>
+          </div>
+        </div>
+        <a routerLink="/search" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Buscar</a>
+        <a routerLink="/actors" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Actores</a>
+      </div>
+
+
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="accountMenuButton">
+            Mi Cuenta
+          </button>
+          <div class="absolute right-0 mt-2 hidden bg-white shadow-lg rounded-md" id="accountMenu">
+            <a routerLink="/profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a>
+            <a routerLink="/favorites" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mis Favoritos</a>
+            <div class="border-t my-1"></div>
+            <a  class="block px-4 py-2 text-gray-800 hover:bg-gray-100 cursor-pointer">Cerrar Sesión</a>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden">
+        <button class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+    <div class="md:hidden" :class="{ 'block': isMenuOpen, 'hidden': !isMenuOpen }">
+      <a routerLink="/" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+      <a routerLink="/movies/popular" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Películas Populares</a>
+      <a routerLink="/movies/now_playing" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">En Cartelera</a>
+      <a routerLink="/movies/upcoming" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Películas Próximas</a>
+      <a routerLink="/movies/top_rated" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Películas Mejor Valoradas</a>
+      <a routerLink="/tv/popular" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Series Populares</a>
+      <a routerLink="/tv/airing_today" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Series Al Aire</a>
+      <a routerLink="/tv/upcoming" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Series Próximas</a>
+      <a routerLink="/tv/top_rated" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Series Mejor Valoradas</a>
+      <a routerLink="/search" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Buscar</a>
+      <a routerLink="/actors" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Actores</a>
+      <a routerLink="/profile" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Perfil</a>
+      <a routerLink="/favorites" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Mis Favoritos</a>
+      <a class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">Cerrar Sesión</a>
+    </div>
+  </nav>
+  

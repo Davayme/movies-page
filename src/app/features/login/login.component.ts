@@ -7,9 +7,8 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
- constructor (private router:Router) { }  
-
- openRegister() {
-  window.open(this.router.serializeUrl(this.router.createUrlTree(['/register'])), '_blank');
-}
+  constructor(private router: Router) { }
+  openRegister() {
+    window.open(this.router.serializeUrl(this.router.createUrlTree(['/register'])), '_blank');
+  }
 }

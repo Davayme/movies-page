@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -6,20 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  registerData = {
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  };
+ formRegister: FormGroup;
 
-  onSubmit() {
-    if (this.registerData.password !== this.registerData.confirmPassword) {
-      alert('Las contraseñas no coinciden');
-      return;
-    }
-
-    // Lógica para manejar el registro del usuario
-    console.log('Datos de registro:', this.registerData);
-  }
+ constructor(private form: FormBuilder){
+  this.formRegister = this.form.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    email: ['', [Validators.email, Validators.required]]
+  });
+ }
 }
