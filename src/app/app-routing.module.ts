@@ -2,16 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './features/login/login.component';
 import { HomeComponent } from './features/home/home.component';
-import { MovieDetailComponent } from './features/movie-detail/movie-detail.component';
-import { RegisterComponent } from './features/register/register.component';
 import { StartComponent } from './features/start/start.component';
+import { SeriesComponent } from './features/series/series.component';
+import { MovieComponent } from './features/movie/movie.component';
+import { PeopleComponent } from './features/people/people.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, data: { title: 'Iniciar sesion' } },
-  { path: 'home', component: HomeComponent, data: { title: 'Inicio' } },
-  { path: 'movie-detail/:id', component: MovieDetailComponent },
-  { path: 'register', component: RegisterComponent, data: { title: 'Registrarse' } },
-  {path: 'start', component: StartComponent},
+  { path: 'login', component: LoginComponent, data: { title: 'Iniciar sesion' } },
+  { path: '', component: HomeComponent, data: { title: 'Inicio' }, children: [
+    {path: '', component: StartComponent},
+    {path: 'series', component: SeriesComponent},
+    {path: 'movies', component: MovieComponent},
+    {path: 'people', component: PeopleComponent}
+    
+  ] },
+  
+ 
 ];
 
 @NgModule({

@@ -10,6 +10,8 @@ import { RegisterComponent } from './features/register/register.component';
 import { MovieComponent } from './features/movie/movie.component';
 import { StartComponent } from './features/start/start.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SeriesComponent } from './features/series/series.component';
+import { PeopleComponent } from './features/people/people.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     MovieComponent,
     StartComponent,
+    SeriesComponent,
+    PeopleComponent,
 
   ],
   imports: [
