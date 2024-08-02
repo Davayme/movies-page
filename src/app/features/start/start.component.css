@@ -1,23 +1,15 @@
-/* start.component.css */
-.movie-card {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .btn:disabled {
-    cursor: not-allowed;
-  }
-  
+/* styles.css o el archivo CSS correspondiente */
+.custom-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.custom-scrollbar::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+.btn-primary {
+  font-size: 0.875rem; /* Ajustar el tamaño de la fuente */
+  padding: 0.5rem 1rem; /* Ajustar el padding */
+}

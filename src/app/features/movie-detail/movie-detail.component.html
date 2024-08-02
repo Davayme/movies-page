@@ -1,8 +1,9 @@
+<!-- movie-detail.component.html -->
 <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 sm:p-8">
-  <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-3xl w-full">
-    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-4 border-b border-gray-200">
+  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-3xl w-full">
+    <div class="bg-gradient-to-r from-indigo-700 to-pink-700 p-4 border-b border-gray-600">
       <div class="flex justify-between items-start">
-        <h3 class="text-lg leading-6 font-medium text-white">{{ detailsMovie?.title }}</h3>
+        <h3 class="text-xl leading-6 font-semibold text-white">{{ detailsMovie?.title }}</h3>
         <button (click)="close()" class="text-white hover:text-gray-300">
           <span class="sr-only">Cerrar</span>
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -11,55 +12,67 @@
         </button>
       </div>
     </div>
-    <div class="bg-white p-4 overflow-y-auto" style="max-height: 80vh;">
+    <div class="bg-gray-800 p-6 overflow-y-auto" style="max-height: 80vh;">
       <img class="w-full h-64 object-cover mb-4 rounded" [src]="'https://image.tmdb.org/t/p/w500' + detailsMovie?.poster_path" alt="{{ detailsMovie?.title }}">
-      <p class="text-gray-700 text-base mb-4">{{ detailsMovie?.overview }}</p>
+      <p class="text-gray-300 text-base mb-4">{{ detailsMovie?.overview }}</p>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <p class="text-gray-600 text-sm mb-2"><strong>Eslogan:</strong> {{ detailsMovie?.tagline }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Estado:</strong> {{ detailsMovie?.status }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Título Original:</strong> {{ detailsMovie?.original_title }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Idioma Original:</strong> {{ detailsMovie?.original_language | uppercase }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Popularidad:</strong> {{ detailsMovie?.popularity }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Promedio de Votos:</strong> {{ detailsMovie?.vote_average }} ({{ detailsMovie?.vote_count }} votos)</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Presupuesto:</strong> {{ detailsMovie?.budget | currency }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Ingresos:</strong> {{ detailsMovie?.revenue | currency }}</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Duración:</strong> {{ detailsMovie?.runtime }} minutos</p>
-          <p class="text-gray-600 text-sm mb-2"><strong>Fecha de Estreno:</strong> {{ detailsMovie?.release_date | date }}</p>
+          <p class="text-gray-400 text-sm mb-2"><strong>Eslogan:</strong> <span class="text-gray-100">{{ detailsMovie?.tagline }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Estado:</strong> <span class="text-gray-100">{{ detailsMovie?.status }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Título Original:</strong> <span class="text-gray-100">{{ detailsMovie?.original_title }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Idioma Original:</strong> <span class="text-gray-100">{{ detailsMovie?.original_language | uppercase }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Popularidad:</strong> <span class="text-gray-100">{{ detailsMovie?.popularity }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Promedio de Votos:</strong> <span class="text-gray-100">{{ detailsMovie?.vote_average }} ({{ detailsMovie?.vote_count }} votos)</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Presupuesto:</strong> <span class="text-gray-100">{{ detailsMovie?.budget | currency }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Ingresos:</strong> <span class="text-gray-100">{{ detailsMovie?.revenue | currency }}</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Duración:</strong> <span class="text-gray-100">{{ detailsMovie?.runtime }} minutos</span></p>
+          <hr class="my-2 border-gray-600">
+          <p class="text-gray-400 text-sm mb-2"><strong>Fecha de Estreno:</strong> <span class="text-gray-100">{{ detailsMovie?.release_date | date }}</span></p>
         </div>
         
         <div>
           <div class="mb-4">
-            <h4 class="text-gray-700 text-lg mb-2">Géneros</h4>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h4 class="text-gray-300 text-lg mb-2">Géneros</h4>
+            <ul class="list-disc list-inside text-gray-300 mb-4">
               <li *ngFor="let genre of detailsMovie?.genres" [appGenreEmoji]="genre.name" appEmojiGenres>{{ genre.name }}</li>
             </ul>
+            <hr class="my-2 border-gray-600">
           </div>
           
           <div class="mb-4">
-            <h4 class="text-gray-700 text-lg mb-2">Compañías de Producción</h4>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h4 class="text-gray-300 text-lg mb-2">Compañías de Producción</h4>
+            <ul class="list-disc list-inside text-gray-300 mb-4">
               <li *ngFor="let company of detailsMovie?.production_companies">{{ company.name }}</li>
             </ul>
+            <hr class="my-2 border-gray-600">
           </div>
           
           <div class="mb-4">
-            <h4 class="text-gray-700 text-lg mb-2">Idiomas Hablados</h4>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h4 class="text-gray-300 text-lg mb-2">Idiomas Hablados</h4>
+            <ul class="list-disc list-inside text-gray-300 mb-4">
               <li *ngFor="let language of detailsMovie?.spoken_languages">{{ language.english_name }}</li>
             </ul>
+            <hr class="my-2 border-gray-600">
           </div>
           
           <div class="mb-4">
-            <h4 class="text-gray-700 text-lg mb-2">Países de Producción</h4>
-            <ul class="list-disc list-inside text-gray-700 mb-4">
+            <h4 class="text-gray-300 text-lg mb-2">Países de Producción</h4>
+            <ul class="list-disc list-inside text-gray-300 mb-4">
               <li *ngFor="let country of detailsMovie?.production_countries">{{ country.name }}</li>
             </ul>
+            <hr class="my-2 border-gray-600">
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
