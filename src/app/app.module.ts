@@ -39,7 +39,8 @@ import { CarrouselComponent } from './features/carrousel/carrousel.component';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
