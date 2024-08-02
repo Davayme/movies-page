@@ -1,12 +1,12 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/core/models/movie.model';
-import { MoviesService } from 'src/app/core/services/movies-service.service';
+import { MoviesService } from 'src/app/core/services/movies-service';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
-  styleUrls: [],
+  styleUrls: ['./start.component.css'],
   animations: [
     trigger('movieCardHover', [
       state('normal', style({
@@ -28,6 +28,8 @@ export class StartComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 1; // Total de páginas
   maxPagesToShow: number = 5; // Número máximo de páginas a mostrar
+  selectedMovieId: number | null = null;
+
 
   constructor(
     private _movieService: MoviesService
@@ -82,5 +84,13 @@ export class StartComponent implements OnInit {
       this.currentPage = Math.min(this.currentPage + this.maxPagesToShow, this.totalPages);
       this.loadMovies(this.currentPage);
     }
+  }
+
+  openMovieDetail(movieId: number): void {
+    this.selectedMovieId = movieId;
+  }
+
+  closeMovieDetail(): void {
+    this.selectedMovieId = null;
   }
 }

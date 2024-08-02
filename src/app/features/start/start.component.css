@@ -1,0 +1,23 @@
+/* start.component.css */
+.movie-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+  

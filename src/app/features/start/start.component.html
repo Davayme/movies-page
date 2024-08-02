@@ -6,7 +6,8 @@
          [ngClass]="{'border-red-500 border-2': movie.adult}"
          [@movieCardHover]="hoverState[i] || 'normal'"
          (mouseenter)="onMouseEnter(i)"
-         (mouseleave)="onMouseLeave(i)">
+         (mouseleave)="onMouseLeave(i)"
+         (click)="openMovieDetail(movie.id)">
       <img
         [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
         alt="{{ movie.title }}"
@@ -28,6 +29,11 @@
           <div class="ml-2" [appRatingStars]="movie.vote_average" appStarts></div>
         </div>
       </div>
+      <button (click)="openMovieDetail(movie.id)" class="btn btn-primary mx-1 px-4 py-2 bg-blue-500 text-white rounded">
+        Mostrar Detalles de la Película
+      </button>
+      
+
     </div>
   </div>
   <div class="flex justify-center mt-4 space-x-2">
@@ -50,3 +56,10 @@
     </button>
   </div>
 </div>
+
+<app-movie-detail
+  *ngIf="selectedMovieId"
+  [idMovie]="selectedMovieId"
+  (closeModal)="closeMovieDetail()">
+</app-movie-detail>
+
