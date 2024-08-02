@@ -16,6 +16,7 @@ import { RatingStarsDirective } from './shared/directives/starts.directive';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmojiGenresDirective } from './shared/directives/emoji-genres.directive';
+import { CarrouselComponent } from './features/carrousel/carrousel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { EmojiGenresDirective } from './shared/directives/emoji-genres.directive
     SeriesComponent,
     PeopleComponent,
     RatingStarsDirective,
-    EmojiGenresDirective,
+    EmojiGenresDirective
 
   ],
   imports: [
