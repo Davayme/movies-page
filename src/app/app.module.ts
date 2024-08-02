@@ -15,6 +15,7 @@ import { PeopleComponent } from './features/people/people.component';
 import { RatingStarsDirective } from './shared/directives/starts.directive';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmojiGenresDirective } from './shared/directives/emoji-genres.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SeriesComponent,
     PeopleComponent,
     RatingStarsDirective,
+    EmojiGenresDirective,
 
   ],
   imports: [
