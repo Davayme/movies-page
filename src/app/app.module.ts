@@ -12,7 +12,9 @@ import { StartComponent } from './features/start/start.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SeriesComponent } from './features/series/series.component';
 import { PeopleComponent } from './features/people/people.component';
-
+import { RatingStarsDirective } from './shared/directives/starts.directive';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,16 @@ import { PeopleComponent } from './features/people/people.component';
     StartComponent,
     SeriesComponent,
     PeopleComponent,
+    RatingStarsDirective,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

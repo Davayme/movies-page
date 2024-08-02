@@ -9,7 +9,7 @@ import { Movie } from '../models/movie.model';
 })
 export class MoviesService{
 
-  private apiUrl = 'https://api.themoviedb.org/3/movie/popular?language=es-Es&page=1';
+  private apiUrl = 'https://api.themoviedb.org/3/movie/popular?language=es-Es';
   private httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'application/json',
@@ -19,7 +19,7 @@ export class MoviesService{
 
   constructor(private http: HttpClient) { }
 
-  getPopularMovies(): Observable<Movie> {
-    return this.http.get<Movie>(this.apiUrl, this.httpOptions);
+  getPopularMovies(page:number = 1): Observable<Movie> {
+    return this.http.get<Movie>(`${this.apiUrl}&page=${page}`, this.httpOptions);
   }
 }
