@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmojiGenresDirective } from './shared/directives/emoji-genres.directive';
 import { CarrouselComponent } from './features/carrousel/carrousel.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -32,9 +31,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     PeopleComponent,
     RatingStarsDirective,
     EmojiGenresDirective,
-    CarrouselComponent,
-    
-
+    CarrouselComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -43,10 +41,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
-    CarouselModule 
-
-    
-
   ],
   providers: [],
   bootstrap: [AppComponent]
