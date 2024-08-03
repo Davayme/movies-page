@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSlider } from '@angular/material/slider';
+import { Component } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
 @Component({
@@ -7,22 +7,29 @@ import { MatSlider } from '@angular/material/slider';
   templateUrl: './carrousel.component.html',
   styleUrls: ['./carrousel.component.css'],
 
+
 })
 export class CarrouselComponent {
-  @ViewChild('slider') slider!: MatSlider;
-  activeIndex = 0;
+  customOptions = {
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 5
+      }
+    }
+  };
 
   slides = [
-    { image: 'assets/slide1.jpg', title: 'Slide 1' },
-    { image: 'assets/slide2.jpg', title: 'Slide 2' },
-    { image: 'assets/slide3.jpg', title: 'Slide 3' }
+    { image: 'https://via.placeholder.com/600x400?text=Slide+1' },
+    { image: 'https://via.placeholder.com/600x400?text=Slide+2' },
+    { image: 'https://via.placeholder.com/600x400?text=Slide+3' }
   ];
-
-  formatLabel(value: number) {
-    return this.slides[value].title;
-  }
-
-  onInputChange(event: any) {
-    this.activeIndex = event.value;
-  }
 }
