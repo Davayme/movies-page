@@ -6,9 +6,11 @@ import { StartComponent } from './features/start/start.component';
 import { SeriesComponent } from './features/series/series.component';
 import { MovieComponent } from './features/movie/movie.component';
 import { PeopleComponent } from './features/people/people.component';
+import { RegisterComponent } from './features/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: { title: 'Iniciar sesion' } },
+  {path: 'register', component: RegisterComponent, data: { title: 'Registrarse' }},
   { path: '', component: HomeComponent, data: { title: 'Inicio' }, children: [
     {path: '', component: StartComponent},
     {path: 'series', component: SeriesComponent},
