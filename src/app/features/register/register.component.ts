@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,8 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   formRegister: FormGroup;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private authService: AuthService, private router: Router) {
     this.formRegister = this.form.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -18,11 +22,20 @@ export class RegisterComponent {
     }, { validator: this.checkPasswords });
   }
 
-  register() {
-    if (this.formRegister.valid) {
-      console.log(this.formRegister.value);
-    } else {
-      console.log('Formulario no válido');
+  async register() {
+    try {
+      if (this.formRegister.valid) {
+        const { email, password } = this.formRegister.value;
+        const UserCredential = await this.authService.sigUpWithEmail(email, password);
+        console.log(UserCredential);
+        this.successMessage = 'Usuario registrado exitosamente.';
+        this.errorMessage = null;
+        this.router.navigate(['/login']); // Redirigir a la ruta de login
+      }
+    } catch (error) {
+      this.successMessage = null;
+      this.errorMessage = 'Error al registrar el usuario. Inténtalo de nuevo.';
+      console.error(error);
     }
   }
 
